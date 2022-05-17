@@ -27,4 +27,15 @@ export class RickAndMortyService {
       })
     })
   }
+
+  getPageCharacters(page: any){
+    return new Promise(resolve => {
+      this.http.get(this.api_url+'/character/?page=' + page,this.httpOptions).subscribe(res => {
+        console.log(res);
+        resolve(res);
+      }, err=> {
+        console.log(err)
+      })
+    })
+  }
 }
